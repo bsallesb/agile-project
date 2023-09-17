@@ -1,22 +1,25 @@
 import { memo } from 'react';
 
-import { SearchResultType } from 'context/FakerContext';
+import { SearchResultType } from 'types';
 
-import { Content, Image, Link, Title } from './styled';
+import { Content, Image, Link, Title, Backdrop } from './styled';
 
 interface ICardProps {
   selectedItem: SearchResultType;
+  onBackdropClick?: () => void;
 }
 
-const Card: React.FC<ICardProps> = ({ selectedItem }) => {
-  console.log({ selectedItem });
+const Card: React.FC<ICardProps> = ({ selectedItem, onBackdropClick }) => {
   return (
-    <Content>
-      <Image style={{ backgroundImage: `url(${selectedItem.image})` }} />
-      <Link>{selectedItem.url}</Link>
-      <Title>{selectedItem.title}</Title>
-      <p>{selectedItem.description}</p>
-    </Content>
+    <>
+      <Backdrop onClick={onBackdropClick} />
+      <Content>
+        <Image style={{ backgroundImage: `url(${selectedItem.image})` }} />
+        <Link>{selectedItem.url}</Link>
+        <Title>{selectedItem.title}</Title>
+        <p>{selectedItem.description}</p>
+      </Content>
+    </>
   );
 };
 

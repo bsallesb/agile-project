@@ -16,6 +16,10 @@ export const Wrapper = styled.header`
   width: 100%;
   justify-content: space-between;
   border-bottom: 1px solid #dfe1e5;
+
+  @media (max-width: 480px) {
+    justify-content: center;
+  }
 `;
 
 export const Section = styled.div<ISectionProps>`
@@ -30,9 +34,10 @@ export const Section = styled.div<ISectionProps>`
   }
 
   @media (max-width: 480px) {
-    flex-direction: ${({ $searchable }) => ($searchable ? 'row' : 'colimn')};
+    flex-direction: ${({ $searchable }) => ($searchable ? 'row' : 'column')};
     gap: ${({ $searchable }) => ($searchable ? 24 : 8)}px;
-    align-items: start;
+    align-items: center;
+    justify-content: space-between;
   }
 `;
 
@@ -65,5 +70,5 @@ export const Image = styled.img`
 `;
 
 export const SearchContent = styled.div`
-  width: 250px;
+  width: 300px;
 `;

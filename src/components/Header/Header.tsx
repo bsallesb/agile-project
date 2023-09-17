@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react';
 
 import { IoApps } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 
 import Logo from 'assets/google-logo.png';
 import UserPhoto from 'assets/user.jpg';
@@ -51,8 +52,10 @@ const Header: React.FC<IHeaderProps> = ({
         </Section>
       )}
       {searchable && (
-        <Section $gap={searchable ? 24 : 8}>
-          <Image src={Logo} alt="Google logo" />
+        <Section $gap={searchable ? 24 : 8} $searchable={searchable}>
+          <Link to="/">
+            <Image src={Logo} alt="Google logo" />
+          </Link>
           <SearchContent>
             <SearchBar onChange={handleChange} onKeyPress={onKeyPress} />
           </SearchContent>

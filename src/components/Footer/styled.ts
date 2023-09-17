@@ -7,7 +7,6 @@ export const Wrapper = styled.footer`
   padding-inline: 24px;
   width: 100%;
   justify-content: space-between;
-  border-bottom: 1px solid #dfe1e5;
   background-color: #f2f2f2;
 `;
 

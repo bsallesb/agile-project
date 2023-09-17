@@ -10,36 +10,15 @@ import { faker } from '@faker-js/faker';
 
 import { isSearchType } from 'helpers';
 
-export type SearchResultType = {
-  type: string;
-  id: number;
-  url: string;
-  title: string;
-  description: string;
-  image: string;
-};
-
-export type SearchType =
-  | 'bear'
-  | 'bird'
-  | 'cat'
-  | 'cetacean'
-  | 'cow'
-  | 'crocodilia'
-  | 'dog'
-  | 'fish'
-  | 'horse'
-  | 'insect'
-  | 'lion'
-  | 'rabbit'
-  | 'rodent'
-  | 'snake';
+import { SearchResultType } from 'types';
 
 interface IFakerContextProps {
   getSearchResults: (search: string) => void;
   isLoading: boolean;
   searchResult: SearchResultType[];
   error: boolean;
+  setSearchValue: (value: string) => void;
+  searchValue: string;
 }
 interface IFakerProviderProps {
   children: React.ReactNode;
@@ -52,9 +31,11 @@ export const ReactFakerContext = createContext<IFakerContextProps>(
 export const FakerProvider: React.FC<IFakerProviderProps> = ({ children }) => {
   const [searchResult, setSearchResult] = useState<SearchResultType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [searchValue, setSearchValue] = useState('');
   const [error, setError] = useState(false);
 
   const getSearchResults = useCallback((search: string) => {
+    setSearchResult([]);
     setError(false);
     setIsLoading(true);
 
@@ -66,19 +47,19 @@ export const FakerProvider: React.FC<IFakerProviderProps> = ({ children }) => {
           url: faker.internet.url(),
           title: faker.lorem.words(),
           description: faker.lorem.sentences(),
-          image: faker.image.animals(644, 362, true),
+          image: faker.image.urlLoremFlickr({ category: search }),
         };
       });
 
       setTimeout(() => {
         setIsLoading(false);
         setSearchResult(results);
-      }, 3000);
+      }, 1000);
     } else {
       setTimeout(() => {
         setIsLoading(false);
         setError(true);
-      }, 3000);
+      }, 1000);
     }
   }, []);
 
@@ -90,8 +71,17 @@ export const FakerProvider: React.FC<IFakerProviderProps> = ({ children }) => {
           isLoading,
           searchResult,
           error,
+          searchValue,
+          setSearchValue,
         }),
-        [getSearchResults, isLoading, searchResult, error],
+        [
+          getSearchResults,
+          isLoading,
+          searchResult,
+          error,
+          searchValue,
+          setSearchValue,
+        ],
       )}
     >
       {children}

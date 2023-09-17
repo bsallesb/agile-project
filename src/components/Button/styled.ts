@@ -6,7 +6,7 @@ export const ButtonStyled = styled.button`
   border: 1px solid #f8f9fa;
   background-color: #f8f9fa;
   border-radius: 5px;
-  cursor: ${({ disabled }) => (disabled ? '' : 'pointer')};
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
   &:hover {
     border: ${({ disabled }) =>

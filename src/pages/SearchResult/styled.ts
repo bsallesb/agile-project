@@ -6,14 +6,26 @@ export const Wrapper = styled.div`
   height: 100vh;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
+
+export const Content = styled.div`
+  display: flex;
+  overflow: auto;
+  justify-content: center;
+  width: 100%;
+  flex-grow: 1;
 `;
 
 export const Container = styled.div`
-  margin-block: 24px;
   display: flex;
-  padding: 24px;
-  max-width: 1250px;
+  width: 1250px;
   gap: 18px;
+  padding-top: 24px;
 
   @media (max-width: 1280px) {
     max-width: 1000px;
@@ -25,6 +37,7 @@ export const Container = styled.div`
 
   @media (max-width: 768px) {
     max-width: 600px;
+    overflow: hidden;
   }
 
   @media (max-width: 480px) {
@@ -48,8 +61,9 @@ export const FirstSection = styled.div`
 export const SecondSection = styled.div`
   min-width: 40%;
   justify-content: end;
+  position: relative;
 
   @media (max-width: 768px) {
-    display: none;
+    position: absolute;
   }
 `;

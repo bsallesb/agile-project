@@ -2,8 +2,8 @@ import { memo } from 'react';
 
 import { BrowserRouter, Routes as Switch, Route } from 'react-router-dom';
 
-import Home from 'pages/Home';
-import SearchResult from 'pages/SearchResult';
+import { Home } from 'pages/Home';
+import { SearchResult } from 'pages/SearchResult';
 
 const Routes: React.FC = () => {
   return (

@@ -1,4 +1,4 @@
-import { SearchType } from 'context/FakerContext';
+import { SearchType } from 'types';
 
 export const isSearchType = (valor: string): valor is SearchType => {
   return [
