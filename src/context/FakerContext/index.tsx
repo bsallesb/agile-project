@@ -39,10 +39,12 @@ export const FakerProvider: React.FC<IFakerProviderProps> = ({ children }) => {
     setError(false);
     setIsLoading(true);
 
-    if (isSearchType(search)) {
+    const searchValue = search.toLocaleLowerCase()
+
+    if (isSearchType(searchValue)) {
       const results = [...new Array(15)].map((item, index) => {
         return {
-          type: faker.animal[search](),
+          type: faker.animal[searchValue](),
           id: index + 1,
           url: faker.internet.url(),
           title: faker.lorem.words(),

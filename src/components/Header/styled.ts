@@ -18,7 +18,7 @@ export const Wrapper = styled.header`
   border-bottom: 1px solid #dfe1e5;
 
   @media (max-width: 480px) {
-    justify-content: center;
+    justify-content: space-between;
   }
 `;
 
@@ -70,5 +70,5 @@ export const Image = styled.img`
 `;
 
 export const SearchContent = styled.div`
-  width: 300px;
+  width: 250px;
 `;
