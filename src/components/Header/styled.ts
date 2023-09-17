@@ -20,6 +20,10 @@ export const Wrapper = styled.header`
   @media (max-width: 480px) {
     justify-content: space-between;
   }
+
+  @media (max-width: 410px) {
+    justify-content: center;
+  }
 `;
 
 export const Section = styled.div<ISectionProps>`
@@ -38,6 +42,12 @@ export const Section = styled.div<ISectionProps>`
     gap: ${({ $searchable }) => ($searchable ? 24 : 8)}px;
     align-items: center;
     justify-content: space-between;
+  }
+
+  @media (max-width: 410px) {
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
   }
 `;
 

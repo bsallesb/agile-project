@@ -17,6 +17,10 @@ export const Content = styled.div`
     width: 60vw;
     left: 35%;
   }
+
+  @media (max-width: 410px) {
+    width: 75vw;
+  }
 `;
 
 export const Backdrop = styled.button`
