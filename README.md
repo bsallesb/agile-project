@@ -1,6 +1,15 @@
-# Vite + React + Typescript + Eslint + Prettier + EditorConfig
+# Agile Content Project
 
-A starter for React with Typescript with the fast Vite and all static code testing with Eslint and formatting with Prettier and EditorConfig.
+O projeto consiste em uma tela inspirada na página do Google, na qual os usuários podem realizar buscas fictícias e visualizar os resultados em forma de lista.
+
+Demonstração: [https://agile-content-bsallesb.netlify.app/](https://agile-content-bsallesb.netlify.app/)
+
+## Tecnologias
+
+- [ReactJS](https://reactjs.org) (Typescript)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [Styled Components](https://styled-components.com/)
+- [Vite](https://vitejs.dev/)
 
 ## Installation & run
 
@@ -18,6 +27,3 @@ yarn
 yarn dev
 ```
 
-## Credits
-
-This is a fork of [https://github.com/TheSwordBreaker/vite-reactts-eslint-prettier](https://github.com/TheSwordBreaker/vite-reactts-eslint-prettier)
